@@ -45,7 +45,7 @@ function Home() {
        ( todos.map(todo => (
             <div className="todo">
 
-            {todo.task} <MdDeleteForever onClick={()=>deleteTask(todo._id)} style={{fontSize:'25px',position:'absolute',right:'0',padding:' 0px 5px'}} />
+            {todo.task} <MdDeleteForever onClick={()=>deleteTask(todo._id)} style={{fontSize:'25px',position:'absolute',right:'0',padding:' 0px 5px'}} className='deleteicon' />
             </div>)
         ))
 
