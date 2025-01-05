@@ -8,7 +8,11 @@ const todoSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
-        } 
+        },
+    done:{
+        type:Boolean,
+        default:false
+    }
 })
 
 module.exports = mongoose.model('TodoTask',todoSchema);
