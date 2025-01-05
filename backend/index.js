@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect("mongodb+srv://poorna268412:j8uc9Im1DK63tZKN@todo.vci2q.mongodb.net/?retryWrites=true&w=majority&appName=todo")
+mongoose.connect (DB)
 .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => console.log(`Server is running at ${PORT}`));
