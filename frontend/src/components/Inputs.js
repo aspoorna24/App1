@@ -1,12 +1,12 @@
 import React from 'react'
-import { useState, useEffect} from 'react';
+import { useState} from 'react';
 function Inputs() {
     const [task, setTask] = useState('');
-    const [todos, setTodos] = useState([]);
+  
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await fetch('http://localhost:8000/', {
+          const response = await fetch('http://localhost:5000/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -16,6 +16,7 @@ function Inputs() {
           if (response.ok) {
             console.log('Task created successfully');
             setTask(''); // Clear the input field after successful submission
+            window.location.reload();
           } else {
             console.error('Failed to create task');
           }
@@ -24,11 +25,7 @@ function Inputs() {
         }
       };
       
-      useEffect(() => {
-        fetch("http://localhost:8000/")
-          .then((res) => res.json())
-          .then((data) => setTodos(data));
-      }, []);
+      
 
   return (
     <div>
@@ -36,11 +33,7 @@ function Inputs() {
       <input type="Text" placeholder='Add task'  value={task} onChange={(e) => setTask(e.target.value)}></input>
       <input type="submit" value="Submit"></input>
       </form>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo._id}>{todo.task}</li>
-        ))}
-      </ul>
+     
     </div>
   )
 }

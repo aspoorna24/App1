@@ -31,7 +31,7 @@ app.get("/api", (req, res) => {
 app.get('/', async(req, res) => {
     try{
         const tasks = await TodoTask.find({});
-        res.send(tasks);
+        res.json(tasks);
     }
     catch(err){
       console.log(err)
@@ -46,10 +46,10 @@ app.post('/',async (req, res) => {
     try {
     await todoTask.save();
     console.log("Created task")
-    res.redirect("/");
+    res.json(todoTask)
     } catch (err) {
-    res.redirect("/");
     console.log(err);
+    res.json(err)
     }
     });
 
@@ -67,5 +67,6 @@ app.delete('/delete/:id', async(req,res)=>{
    }
    catch (err){
     console.log(err);
+    res.send('Server error')
    }
 })
