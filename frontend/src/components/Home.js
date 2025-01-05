@@ -1,8 +1,11 @@
 import React, { useState,useEffect } from 'react'
 import Inputs from './Inputs'
 import { MdDeleteForever } from "react-icons/md";
+import { ToastContainer, toast } from 'react-toastify';
 function Home() {
     const [todos, setTodos] = useState([]);
+
+   
 
     useEffect(() => {
       fetch("http://localhost:5000/")
@@ -20,8 +23,11 @@ function Home() {
             });
             if (repsones){
               const result = await repsones.json();
-              console.log('Task deleted',result)
-              window.location.reload();
+              toast.success('Task deleted')
+              setTimeout(()=>{
+                window.location.reload();
+              },2000)  
+            
             }
             else{
               console.error('Failed to delete taks',repsones.status)
@@ -46,12 +52,16 @@ function Home() {
             <div className="todo">
 
             {todo.task} <MdDeleteForever onClick={()=>deleteTask(todo._id)} style={{fontSize:'25px',position:'absolute',right:'0',padding:' 0px 5px'}} className='deleteicon' />
+          
             </div>)
+
         ))
 
     }
+    <ToastContainer />
     </div>
     </div>
+    
   )
 }
 
