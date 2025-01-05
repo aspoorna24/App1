@@ -17,7 +17,7 @@ function Home() {
     const taskTick = async(id)=>{
 
       try{
-        const repsones = await fetch(`http://localhost:5000/update/${id}`,{
+        const repsones = await fetch(`https://app1-omega-self.vercel.app/update/${id}`,{
             method:'PUT',
             headers:{
               'Content-Type':'application/json',
