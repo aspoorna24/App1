@@ -5,14 +5,14 @@ function Home() {
     const [todos, setTodos] = useState([]);
 
     useEffect(() => {
-      fetch("http://localhost:5000/")
+      fetch("app1-omega-self.vercel.app/")
         .then((res) => res.json())
         .then((data) => setTodos(data));
     }, []);
 
     const deleteTask = async(id) =>{
           try{
-            const repsones = await fetch(`http://localhost:5000/delete/${id}`,{
+            const repsones = await fetch(`app1-omega-self.vercel.app/delete/${id}`,{
             method:'DELETE',
             headers:{
               'Content-Type':'application/json',
