@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState} from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 function Inputs() {
     const [task, setTask] = useState('');
   
@@ -14,9 +15,12 @@ function Inputs() {
             body: JSON.stringify({ task }),
           });
           if (response.ok) {
-            console.log('Task created successfully');
+            toast.success("Task Created")
             setTask(''); // Clear the input field after successful submission
-            window.location.reload();
+            setTimeout(()=>{
+              window.location.reload();
+            },3000);
+           
           } else {
             console.error('Failed to create task');
           }
@@ -32,6 +36,7 @@ function Inputs() {
      <form onSubmit={handleSubmit}>
       <input type="text" placeholder='Add task'  value={task} onChange={(e) => setTask(e.target.value)}></input>
       <input type="submit" value="Add Task"></input>
+      <ToastContainer />
       </form>
      
     </div>
