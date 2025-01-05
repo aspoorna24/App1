@@ -5,14 +5,14 @@ function Home() {
     const [todos, setTodos] = useState([]);
 
     useEffect(() => {
-      fetch("app1-omega-self.vercel.app/")
+      fetch("https://app1-omega-self.vercel.app/")
         .then((res) => res.json())
         .then((data) => setTodos(data));
     }, []);
 
     const deleteTask = async(id) =>{
           try{
-            const repsones = await fetch(`app1-omega-self.vercel.app/delete/${id}`,{
+            const repsones = await fetch(`https://app1-omega-self.vercel.app/delete/${id}`,{
             method:'DELETE',
             headers:{
               'Content-Type':'application/json',
@@ -34,7 +34,7 @@ function Home() {
     
   return (
     <div>
-    <h1>Todo List</h1>
+   
     <Inputs></Inputs>
     {
         todos.lenght === 0

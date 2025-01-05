@@ -24,7 +24,7 @@ mongoose.connect('mongodb+srv://poorna268412:j8uc9Im1DK63tZKN@todo.vci2q.mongodb
 });
 
 app.get("/api", (req, res) => {
-    res.send({ message: "Hello from server!" });
+    res.send({ message: "ToDo List" });
   });
 
 //read all

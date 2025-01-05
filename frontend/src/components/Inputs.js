@@ -6,7 +6,7 @@ function Inputs() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await fetch('app1-omega-self.vercel.app/', {
+          const response = await fetch('https://app1-omega-self.vercel.app/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
