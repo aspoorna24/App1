@@ -30,8 +30,8 @@ function Inputs() {
   return (
     <div>
      <form onSubmit={handleSubmit}>
-      <input type="Text" placeholder='Add task'  value={task} onChange={(e) => setTask(e.target.value)}></input>
-      <input type="submit" value="Submit"></input>
+      <input type="text" placeholder='Add task'  value={task} onChange={(e) => setTask(e.target.value)}></input>
+      <input type="submit" value="Add Task"></input>
       </form>
      
     </div>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [message, setMessage] = useState("");
   
-    fetch("https://app1-omega-self.vercel.app/api")
+    fetch("http://localhost:5000/api")
     .then((res) =>res.json())
     .then((data)=>setMessage(data.message));
   return (
