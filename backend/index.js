@@ -53,6 +53,20 @@ app.post('/',async (req, res) => {
     }
     });
 
+app.put('/update/:id', async(req,res)=>{
+   
+        const id = req.params.id;
+        try{
+           TodoTask.findByIdAndUpdate({_id:id},{done:true})
+           .then(result=>res.json(result))
+           .catch(err=>console.log(err))
+        }
+        catch(err)
+        {
+           console.log(err)
+        }
+       })
+
 //delete
 app.delete('/delete/:id', async(req,res)=>{
     
@@ -70,3 +84,4 @@ app.delete('/delete/:id', async(req,res)=>{
     res.send('Server error')
    }
 })
+
